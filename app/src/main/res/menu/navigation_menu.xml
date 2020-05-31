@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group1">
+    <item
+        android:title="خانه"
+        android:id="@+id/nv_home"
+        android:icon="@drawable/ic_home_black_24dp"
+
+        >
+
+    </item>
+
+    <item
+        android:title="لیست دسته بندی محصولات"
+        android:id="@+id/nv_list_categoris"
+        android:icon="@drawable/ic_list_black_24dp"
+        >
+    </item>
+    </group>
+    <group android:id="@+id/group2">
+    <item
+        android:title="سبد خرید"
+        android:id="@+id/nv_carte"
+        android:icon="@drawable/ic_shopping_cart_black_24dp"
+        >
+    </item>
+    </group>
+
+    <group android:id="@+id/group3">
+
+    <item
+        android:title="پیشنهاد ویژه دیجی مد"
+        android:id="@+id/nv_special_offer"
+        android:icon="@drawable/ic_star_gary_24dp"
+        >
+    </item>
+
+    <item
+        android:title="پرفروش ترین ها"
+        android:id="@+id/nv_bestseller"
+        android:icon="@drawable/ic_star_gary_24dp"
+        >
+    </item>
+
+    </group>
+
+
+    <item
+        android:title= "درباره ما"
+        android:id="@+id/nv_about_us"
+        android:icon="@drawable/logo_dm_gray_marker"
+        >
+    </item>
+
+
+</menu>

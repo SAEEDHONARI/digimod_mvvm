@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@drawable/bg_toolbar"
+    tools:ignore="MissingPrefix"
+    android:layoutDirection="rtl"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageUser"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/ic_person_white_24dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BtnBordered"
+            android:id="@+id/btn_inputOrRegister"
+            android:layout_toLeftOf="@id/imageUser"
+            android:layout_marginRight="@dimen/dime_15"
+            android:layout_weight="1"
+            android:layout_marginTop="80dp"
+            android:textSize="12sp"
+            android:text="ثبت نام یا ورود"
+ />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_Username"
+            android:textColor="@color/white"
+            android:layout_toLeftOf="@id/imageUser"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="92dp"
+            android:text="نام کاربر"
+            android:textSize="@dimen/dime_15"
+            android:textStyle="bold"
+            android:visibility="gone"
+
+            />
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+</LinearLayout>

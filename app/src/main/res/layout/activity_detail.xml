@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="data"
+            type="com.example.mvvm_digimode.model.Product_Model" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F3F1F1"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        tools:context=".products.DetailProductActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/bg_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/Img_back_detail"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layoutDirection="rtl"
+                    android:src="@drawable/ic_arrow_back_white_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_title_toolbar_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_toLeftOf="@+id/Img_back_detail"
+                    android:text="توضیحات محصول"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+
+                <ImageView
+                    android:id="@+id/Img_detail_cart"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dime_15"
+                    android:layoutDirection="ltr"
+                    android:src="@drawable/ic_shopping_cart_white_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_count_detail_cart"
+                    android:layout_width="@dimen/dime_20"
+                    android:layout_height="@dimen/dime_20"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="26dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_tv_cart_grey"
+                    android:gravity="center"
+                    android:layoutDirection="ltr"
+                    android:text="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/Img_detail_favorite"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/dime_10"
+                    android:layout_marginTop="12dp"
+                    android:layout_toRightOf="@id/Img_detail_cart"
+                    android:layoutDirection="ltr"
+                    android:src="@drawable/ic_favorite_white_24dp" />
+
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <com.example.mvvm_digimode.view.ObservableScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/card_toolbar_button"
+            android:layout_below="@id/toolbar_detail"
+            android:layout_marginTop="@dimen/dime_10"
+            android:fadeScrollbars="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbars="vertical">
+
+            <FrameLayout
+                android:id="@+id/img_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F1EFEF"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:layout_alignParentTop="true"
+                        android:id="@+id/layout_slider"
+                        android:orientation="vertical">
+
+                        <com.smarteist.autoimageslider.SliderView
+                            android:id="@+id/imageSlider"
+                            android:layout_width="280dp"
+                            android:layout_centerInParent="true"
+                            android:layout_height="320dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_margin="@dimen/dime_10"
+                            app:sliderAnimationDuration="600"
+                            app:sliderAutoCycleDirection="back_and_forth"
+                            app:sliderAutoCycleEnabled="false"
+                            app:sliderIndicatorAnimationDuration="600"
+                            app:sliderIndicatorGravity="left|bottom"
+                            app:sliderIndicatorMargin="15dp"
+                            app:sliderIndicatorOrientation="horizontal"
+                            app:sliderIndicatorPadding="3dp"
+                            app:sliderIndicatorRadius="2dp"
+                            app:sliderIndicatorSelectedColor="#5A5A5A"
+                            app:sliderIndicatorUnselectedColor="@color/colorPrimary"
+                            app:sliderScrollTimeInSec="1"
+                            app:sliderStartAutoCycle="true" />
+                    </RelativeLayout>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layout_slider"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="@dimen/dime_5"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="@dimen/dime_5"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="5dp">
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:id="@+id/txt_title_detail_product"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginLeft="@dimen/dime_10"
+                                android:layout_marginTop="@dimen/dime_10"
+                                android:layout_marginRight="@dimen/dime_10"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="@{data.title}"
+                                android:textColor="#000"
+                                android:textSize="14dp" />
+
+
+                            <View
+                                android:id="@+id/line1"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_below="@id/txt_title_detail_product"
+                                android:layout_marginLeft="@dimen/dime_20"
+                                android:layout_marginRight="@dimen/dime_20"
+                                android:layout_marginTop="@dimen/dime_10"
+                                android:background="#E8ECE8" />
+
+                            <TextView
+                                android:id="@+id/txt_title_time_send"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/line1"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_margin="10dp"
+                                android:gravity="right"
+                                android:text="زمان حدودی ارسال: "
+                                android:textColor="#7C7979"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_time_send_product"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/line1"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginTop="@dimen/dime_10"
+                                android:layout_marginBottom="@dimen/dime_10"
+                                android:layout_toLeftOf="@+id/txt_title_time_send"
+                                android:gravity="right"
+                                android:text="4 روز"
+                                android:textColor="#000000"
+                                android:textSize="13dp" />
+
+
+                            <View
+                                android:id="@+id/line2"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_below="@id/txt_time_send_product"
+                                android:layout_marginLeft="@dimen/dime_20"
+                                android:layout_marginRight="@dimen/dime_20"
+                                android:background="#E8ECE8" />
+
+                            <TextView
+                                android:id="@+id/txt_barcode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/line2"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_margin="10dp"
+                                android:gravity="right"
+                                android:text="کد محصول:"
+                                android:textColor="#7C7979"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_barcode_detail_product"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/line2"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginTop="@dimen/dime_10"
+                                android:layout_marginBottom="@dimen/dime_10"
+                                android:layout_toLeftOf="@+id/txt_barcode"
+                                android:gravity="right"
+                                android:text="@{data.barcode}"
+                                android:textColor="#000000"
+                                android:textSize="13dp" />
+
+
+                            <View
+                                android:id="@+id/line3"
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_below="@id/txt_barcode_detail_product"
+                                android:layout_marginLeft="@dimen/dime_20"
+                                android:layout_marginRight="@dimen/dime_20"
+                                android:background="#E8ECE8" />
+
+
+                            <TextView
+                                android:id="@+id/txt_cate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/line3"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_margin="10dp"
+                                android:gravity="right"
+                                android:text="گروه:  "
+                                android:textColor="#7C7979"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/txt_cate_detail_product"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_toLeftOf="@+id/txt_cate"
+                                android:gravity="right"
+                                android:layout_marginTop="@dimen/dime_10"
+                                android:layout_marginBottom="@dimen/dime_10"
+                                android:layout_below="@+id/line3"
+                                android:text="تی شرت"
+                                android:textColor="#000000"
+                                android:textSize="13dp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/card_title"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        app:cardCornerRadius="6dp"
+
+                        app:cardElevation="5dp">
+
+
+                        <RelativeLayout
+                            android:id="@+id/layout_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:id="@+id/txt_desc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginLeft="@dimen/dime_10"
+                                android:layout_marginTop="@dimen/dime_10"
+                                android:layout_marginRight="@dimen/dime_10"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="توضیحات محصول"
+                                android:textColor="#7C7979"
+                                android:textSize="14dp" />
+
+
+                            <TextView
+                                android:id="@+id/txt_description_detail_product"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_desc"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_margin="@dimen/dime_10"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:text="@{data.des}"
+                                android:textColor="#000"
+                                android:textSize="13dp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_select_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/card_desc"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="5dp"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txt_size"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right|center_vertical"
+                                android:layout_marginLeft="@dimen/dime_10"
+                                android:layout_marginRight="@dimen/dime_10"
+                                android:layout_marginTop="@dimen/dime_5"
+                                android:layout_marginBottom="@dimen/dime_5"
+                                android:gravity="right"
+                                android:text="انتخاب سایز:  "
+                                android:textColor="#7C7979"
+                                android:textSize="14dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+
+                                android:orientation="vertical">
+
+                                <RadioGroup
+                                    android:id="@+id/standard_radio_group"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/title"
+                                    android:layout_marginRight="@dimen/dime_10"
+                                    android:layout_centerHorizontal="true"
+                                    android:orientation="horizontal">
+
+                                    <RadioButton
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/radio_states"
+                                        android:button="@null"
+                                        android:gravity="center"
+                                        android:text="S"
+                                        android:textColor="#000"
+                                        android:textFontWeight="1" />
+
+                                    <RadioButton
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/radio_states"
+                                        android:button="@null"
+                                        android:gravity="center"
+                                        android:text="M"
+                                        android:textColor="#000" />
+
+                                    <RadioButton
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_margin="5dp"
+                                        android:background="@drawable/radio_states"
+                                        android:button="@null"
+                                        android:gravity="center"
+                                        android:text="L"
+                                        android:textColor="#000" />
+                                </RadioGroup>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_openion"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_below="@id/card_select_size"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:cardCornerRadius="@dimen/dime_5"
+                        app:cardElevation="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/title_openion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginTop="@dimen/dime_10"
+                                android:layout_marginRight="@dimen/dime_10"
+                                android:layout_marginBottom="@dimen/dime_10"
+                                android:text="نظرات کاربران"
+                                android:textColor="#000"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/count_openion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/title_openion"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="@dimen/dime_5"
+                                android:layout_marginBottom="@dimen/dime_10"
+                                android:layout_toLeftOf="@id/title_openion"
+                                android:layoutDirection="ltr"
+                                android:text="4 نظر"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/btn_add_openion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dime_20"
+                                android:layout_marginRight="30dp"
+                                android:background="@drawable/tv_discount_vertical"
+                                android:text="ثبت نظر"
+
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_openion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/card_openion"
+                        android:padding="@dimen/dime_5"
+                        android:scrollbars="horizontal" />
+
+                </RelativeLayout>
+
+
+
+            </FrameLayout>
+        </com.example.mvvm_digimode.view.ObservableScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/card_toolbar_button"
+            app:cardElevation="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="5"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dime_10">
+
+                <TextView
+                    android:id="@+id/txt_add_cart"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/dime_20"
+                    android:background="@drawable/tv_discount_vertical"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="افزودن به سبد خرید"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@id/txt_add_cart"
+                    android:orientation="vertical"
+
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/layout_discount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dime_5"
+                        android:layout_toLeftOf="@id/txt_add_cart"
+                        android:gravity="left"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
+
+                        <TextView
+                            android:id="@+id/txt_price_product_detail"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dime_5"
+                            android:layout_marginTop="@dimen/dime_5"
+                            android:layout_weight="3"
+                            android:gravity="left|center_horizontal"
+                            android:singleLine="true"
+                            android:text="1000 تومان"
+                            android:textColor="@color/redA700"
+                            android:textSize="13dp" />
+
+                        <TextView
+                            android:id="@+id/txt_persent_discount_detail"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight=".8"
+                            android:background="@drawable/tv_discount_vertical"
+                            android:gravity="center"
+                            android:text="30%"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textDirection="ltr"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txt_price_detail_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="25dp"
+                        android:gravity="left|center_vertical"
+                        android:text="90.000 تومان"
+                        android:textColor="@color/pricegreen"
+                        android:textSize="16dp" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+</layout>

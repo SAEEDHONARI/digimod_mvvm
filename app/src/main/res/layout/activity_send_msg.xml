@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".view.SendMsgActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_msg"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <RelativeLayout
+            android:id="@+id/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/Img_back_msg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layoutDirection="rtl"
+                android:src="@drawable/ic_arrow_back_white_24dp" />
+
+            <ImageView
+                android:id="@+id/Img_product_msg"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dime_5"
+                android:layout_marginBottom="@dimen/dime_5"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="35dp"
+                android:layout_toLeftOf="@+id/Img_back_msg"
+                android:layoutDirection="rtl"
+                android:src="@drawable/t_shirt" />
+
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/dime_20"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/Img_product_msg"
+                android:text="دیدگاه شما"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_desc_toolbar_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_msg"
+                android:layout_marginTop="@dimen/dime_5"
+                android:layout_marginRight="5dp"
+                android:singleLine="true"
+                android:maxLength="40"
+                android:layout_toLeftOf="@+id/Img_product_msg"
+                android:text=" تی شرت طرح آدیداس ، از جنس الیاف ابریشم"
+                android:textColor="@color/white_transparent_tab"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/layout_face"
+        android:layout_below="@id/toolbar_msg"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="@dimen/dime_20"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/Img_angry"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ungry_gray" />
+
+        <ImageView
+            android:id="@+id/Img_normal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/dime_20"
+            android:layout_toLeftOf="@+id/Img_angry"
+            android:src="@drawable/normal_gray" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/Img_funny"
+            android:layout_marginRight="@dimen/dime_20"
+            android:layout_toLeftOf="@+id/Img_normal"
+            android:src="@drawable/funny_gray" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_face"
+        android:id="@+id/status_msg"
+        android:layout_alignRight="@id/layout_face"
+        android:layout_alignLeft="@+id/layout_face"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:layout_marginTop="@dimen/dime_10"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/status_msg"
+        android:layout_marginTop="40dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_2"
+            android:text="دیدگاه خود را بیان کنید."
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dime_20"
+            android:textColor="#000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dime_10"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/title_msg_layout"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
+            android:textColorHint="#000"
+            android:layout_below="@id/title_2"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_title_msg"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center_vertical"
+                android:textSize="14dp"
+
+                android:hint="عنوان"
+                android:padding="@dimen/dime_10"
+                android:background="@drawable/rounded_bg"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/msg_layout"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="@dimen/dime_20"
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
+            android:textColorHint="#000"
+            android:layout_below="@id/title_msg_layout"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_context_msg"
+                style="@style/Widget.Design.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginRight="5dp"
+                android:gravity="right"
+                android:hint="متن نظر"
+                android:padding="@dimen/dime_10"
+                android:textSize="14dp"
+                android:lines="5"
+                android:inputType="textMultiLine"
+                android:background="@drawable/rounded_bg"
+                android:textAlignment="center" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_submit_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/msg_layout"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/bg_btn_gradint"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            android:text="ثبت دیدگاه"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

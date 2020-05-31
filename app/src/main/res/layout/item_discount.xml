@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="data"
+            type="com.example.mvvm_digimode.model.Product_Model" />
+</data>
+
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dime_5">
+
+
+        <xyz.schwaab.avvylib.AvatarView
+            android:id="@+id/circle_ImageView"
+            android:layout_width="150dp"
+            android:layout_height="90dp"
+            android:src="@drawable/t_shirt"
+            app:avvy_border_color="@color/grey400"
+            app:avvy_border_color_end="@color/grey400"
+            app:avvy_border_highlight_color="@color/colorPrimary"
+            app:avvy_border_highlight_color_end="#9C27B0"
+            app:avvy_border_thickness="2dp"
+            app:avvy_border_thickness_highlight="3dp"
+            app:avvy_distance_to_border="5dp"
+            app:avvy_highlighted="true"
+            app:image="@{data.pic1}"
+            app:avvy_loading_arches="5"
+            app:avvy_loading_arches_degree_area="90"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_discount"
+            android:layout_width="35dp"
+            android:layout_height="25dp"
+            android:layout_alignRight="@id/circle_ImageView"
+            android:layout_marginTop="@dimen/dime_10"
+            android:scaleType="centerInside"
+            android:src="@drawable/discount10" />
+
+        <TextView
+            android:id="@+id/txt_circle_recycle_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/circle_ImageView"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dime_5"
+            android:text="تومان 1000000"
+            android:textColor="@color/redA700"
+            android:textSize="12dp"
+            />
+
+        <TextView
+            android:id="@+id/txt_circle_recycle_discount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_circle_recycle_price"
+            android:gravity="center"
+            android:textColor="@color/greenA700"
+            android:textSize="12dp"
+            />
+    </RelativeLayout>
+
+</layout>
